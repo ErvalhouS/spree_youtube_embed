@@ -1,0 +1,55 @@
+<%= render partial: 'spree/admin/shared/product_tabs', locals: { current: :videos } %>
+
+<% content_for :page_actions do %>
+  <%= button_link_to("New Video", spree.new_admin_product_video_url(@product), { class: "btn-success", icon: 'add', id: 'new_video_link' }) if can? :create, Spree::Video %>
+<% end %>
+
+<% has_variants = @product.has_variants? %>
+
+<% unless @product.variant_videos.any? %>
+  <div class="alert alert-warning">
+    <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::Video)) %>.
+  </div>
+<% else %>
+  <table class="table sortable" data-hook="videos_table">
+    <thead>
+      <tr data-hook="images_header">
+        <th colspan="2">
+          <%= Spree.t(:thumbnail) %>
+        </th>
+        <% if has_variants %>
+          <th>
+            <%= Spree::Variant.model_name.human %>
+          </th>
+        <% end %>
+        <th>
+          <%= Spree.t(:alt_text) %>
+        </th>
+        <th class="actions"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% (@product.variant_videos).each do |video| %>
+        <tr id="<%= spree_dom_id video %>" data-hook="images_row">
+          <td class="move-handle text-center">
+            <% if can? :edit, video %>
+              <span class="icon icon-move handle"></span>
+            <% end %>
+          </td>
+          <td class="image">
+            <%= embed(video.attachment, "image") %>
+          </td>
+          <% if has_variants %>
+            <td><%= options_text_for(video) %></td>
+          <% end %>
+          <td><%= video.alt %></td>
+          <td class="actions actions-2 text-right">
+            <%= link_to_with_icon('edit', Spree.t(:edit), spree.edit_admin_product_video_url(@product, video), class: 'btn btn-primary btn-sm', no_text: true, data: { action: 'edit' }) if can? :edit, video %>
+            <%= link_to_delete(video, { url: spree.admin_product_video_url(@product, video), no_text: true }) if can? :destroy, video %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

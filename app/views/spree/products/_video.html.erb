@@ -1,0 +1,5 @@
+<% if defined?(video) && video %>
+    <%= embed(video.attachment, "image") %>
+<% else %>
+    <%= product_image(@product, :itemprop => "image") %>
+<% end %>

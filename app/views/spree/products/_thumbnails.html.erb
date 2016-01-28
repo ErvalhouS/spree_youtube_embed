@@ -1,0 +1,30 @@
+<%# no need for thumbnails unless there is more than one image %>
+<% if (@product.images + @product.variant_images).uniq.size > 1 || (@product.images + @product.variant_images + @product.videos + @product.variant_videos).uniq.size > 2 || (@product.videos + @product.variant_videos).uniq.size > 1 %>
+  <ul id="product-thumbnails" class="thumbnails list-inline">
+    <% @product.images.each do |i| %>
+        <li class='tmb-all tmb-<%= i.viewable.id %>'>
+          <%= link_to(image_tag(i.attachment.url(:mini), class: "thumbnail"), i.attachment.url(:product)) %>
+        </li>
+    <% end %>
+    <% @product.videos.each do |i| %>
+        <li class='tmb-all tmb-<%= i.variant_id %> video'>
+          <%= link_to(image_tag("https://www.youtube.com/yt/brand/media/image/YouTube-icon-dark.png", class: "thumbnail", height: 40), i.attachment) %>
+        </li>
+    <% end %>
+
+    <% if @product.has_variants? %>
+      <% @product.variant_images.each do |i| %>
+        <% next if @product.images.include?(i) %>
+        <li class='vtmb tmb-<%= i.viewable.id %>'>
+          <%= link_to(image_tag(i.attachment.url(:mini), class: "thumbnail"), i.attachment.url(:product)) %>
+        </li>
+      <% end %>
+        <% @product.variant_videos.each do |i| %>
+            <% next if @product.videos.include?(i) %>
+            <li class='vtmb tmb-<%= i.variant_id %> video'>
+              <%= link_to(image_tag("https://www.youtube.com/yt/brand/media/image/YouTube-icon-dark.png", class: "thumbnail", height: 40), i.attachment) %>
+            </li>
+        <% end %>
+    <% end %>
+  </ul>
+<% end %>

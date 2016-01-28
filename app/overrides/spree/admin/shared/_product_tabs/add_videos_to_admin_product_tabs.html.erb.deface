@@ -1,0 +1,5 @@
+<!-- insert_bottom "[data-hook='admin_product_tabs'], #admin_product_tabs[data-hook]" -->
+
+<li<%= ' class=\"active\"' %>>
+  <%= link_to_with_icon 'play', 'Videos', admin_product_videos_path(@product) %>
+</li>
