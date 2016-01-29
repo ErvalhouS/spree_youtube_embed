@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 SpreeYoutubeEmbed
 =================
 
@@ -37,3 +38,7 @@ require 'spree_youtube_embed/factories'
 ```
 
 Copyright (c) 2016 [name of extension creator], released under the New BSD License
+=======
+# spree_youtube_embed
+Spree extension to add Youtube videos to products with similar integration as images.
+>>>>>>> d7ddd52527190999bbc8d3318776e7b276c020f7
