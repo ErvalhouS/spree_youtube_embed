@@ -1,8 +1,13 @@
-<<<<<<< HEAD
 SpreeYoutubeEmbed
 =================
 
-Introduction goes here.
+Spree extension to add Youtube videos to products with similar integration as images.
+
+TODOS:
+
+- Better Commenting (Initial Release)
+- Rules for others video hosting ie.: Vimeo
+- CoffeeScript optimization to restore onmouseenter and onmouseleave behavior to images
 
 Installation
 ------------
@@ -41,4 +46,3 @@ Copyright (c) 2016 [name of extension creator], released under the New BSD Licen
 =======
 # spree_youtube_embed
 Spree extension to add Youtube videos to products with similar integration as images.
->>>>>>> d7ddd52527190999bbc8d3318776e7b276c020f7
