@@ -1,7 +1,7 @@
 SpreeYoutubeEmbed
 =================
 
-Spree extension to add Youtube videos to products with similar integration as images.
+Spree extension to add Youtube videos to products with similar integration as images. WARNING: An override of JavaScript behavior on images Spree::Products#show will stop images from changing on mouse hover, need to do a refactoring on "app/assets/javascrips/frontend/products.js.coffee" or some adjustment on "app/assets/javascrips/frontend/spree_youtube_embed.js" 
 
 TODOS:
 
