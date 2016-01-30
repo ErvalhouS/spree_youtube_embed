@@ -1,7 +1,7 @@
 module Spree
   module Admin
     class VideosController < ResourceController
-      belongs_to "spree/product", :find_by => :slug
+      belongs_to "spree/product", find_by: :slug
       before_action :load_edit_data, except: :index
       before_action :load_index_data, only: :index
       create.before :set_viewable
