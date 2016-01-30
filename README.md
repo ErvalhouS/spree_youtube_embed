@@ -8,6 +8,7 @@ TODOS:
 - Better Commenting (Initial Release)
 - Rules for others video hosting ie.: Vimeo
 - CoffeeScript optimization to restore onmouseenter and onmouseleave behavior to images
+- CSS optimization
 
 Installation
 ------------
@@ -42,7 +43,5 @@ Simply add this require statement to your spec_helper:
 require 'spree_youtube_embed/factories'
 ```
 
-Copyright (c) 2016 [name of extension creator], released under the New BSD License
+Copyright (c) 2016 Fernando Bellincanta, released under the New BSD License
 =======
-# spree_youtube_embed
-Spree extension to add Youtube videos to products with similar integration as images.
