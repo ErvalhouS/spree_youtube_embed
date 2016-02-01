@@ -16,7 +16,7 @@ Installation
 Add spree_youtube_embed to your Gemfile:
 
 ```ruby
-gem 'spree_youtube_embed'
+gem 'spree_youtube_embed', github: 'ErvalhouS/spree_youtube_embed', branch: '3-0-stable'
 ```
 
 Bundle your dependencies and run the installation generator:
@@ -44,4 +44,3 @@ require 'spree_youtube_embed/factories'
 ```
 
 Copyright (c) 2016 Fernando Bellincanta, released under the New BSD License
-=======
